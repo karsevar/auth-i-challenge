@@ -1,4 +1,4 @@
-const db = require('../data/dbConfig.js');
+const db = require('../data/migrations/dbConfig.js');
 
 function find() {
     return db('users').select('id', 'username', 'password');
