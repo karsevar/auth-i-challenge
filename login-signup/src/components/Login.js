@@ -9,7 +9,7 @@ const Login = (props) => {
     };
 
     return (
-        <form onSubmit={props.loginHandler}>
+        <form onSubmit={e => props.loginHandler(creds, e)}>
             <label>Username</label>
             <input 
                 name='username'
@@ -26,7 +26,7 @@ const Login = (props) => {
                 onChange={changeHandler}
                 placeholder="Password"
             />
-
+            <button>Submit!</button>
         </form>
     )
 }
