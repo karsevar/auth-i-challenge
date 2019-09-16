@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import Login from './components/Login';
 
 function App() {
   return (
     <div className="App">
-      <h2>Welcom to zombocom!!!</h2>
+      <Login />
     </div>
   );
 }
