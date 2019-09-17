@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import './App.css';
-import {Route, Link} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import NavBar from './components/NavBar';
+import Users from './components/Users';
 
 function App() {
 
@@ -42,17 +44,28 @@ function App() {
       })
   }
 
+  const logoutHandler = (event) => {
+    axios
+      .get('http://localhost:4000/api/logout')
+      .then(res => {
+        console.log(res) 
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
   return (
     <div className="App">
-      <div className='app-navigation'>
-        <Link to='/login'>Login</Link>
-        <Link to='/signup'>Signup</Link>
-      </div>
+      <NavBar logoutHandler={logoutHandler} />
       <Route path='/login' render={props => {
         return <Login {...props} loginHandler={loginHandler} error={error} success={success} /> 
       }} />
       <Route path='/signup' render={props => {
         return <Signup {...props} signupHandler={signupHandler} error={error} success={success} /> 
+      }} />
+      <Route path='/users' render={props => {
+        return <Users /> 
       }} />
     </div>
   );
