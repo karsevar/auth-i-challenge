@@ -7,6 +7,8 @@ import Signup from './components/Signup';
 import NavBar from './components/NavBar';
 import Users from './components/Users';
 
+axios.defaults.withCredentials = true;
+
 function App() {
 
   const [error, setError] = useState('');
